@@ -95,12 +95,21 @@ class Folder(DownloadItem):
         #unzip the file
         #for now we just print the name of the file
        
-        with zipfile.ZipFile(self.local_path+".zip", 'r') as zip_ref:
+        with zipfile.ZipFile(self.local_path + ".zip", 'r') as zip_ref:
             extract_path = os.path.dirname(self.local_path)
-            zip_ref.extractall(extract_path)
-           
+            file_list = zip_ref.infolist()
+            total_files = len(file_list)
+
+            print(f"Extracting {total_files} files from {self.local_path}.zip")
+
+            for i, file in enumerate(file_list, start=1):
+                zip_ref.extract(file, extract_path)
+                progress = (i / total_files) * 100
+                print(f"Extracting: {progress:.2f}% ({i}/{total_files})", end="\r")
+
+        print("\nExtraction complete.")
         # Delete the zip file after unzipping
-        self.safe_remove(self.local_path+".zip")  # Remove the incomplete file
+        self.safe_remove(self.local_path + ".zip")  # Remove the incomplete file
          
         
     def child_factory(self):
@@ -140,7 +149,6 @@ class Folder(DownloadItem):
 
             else:
                 print(f"downloading {self.name} folder")
-                start=time.time()
                 
                 meta,res=self.dbx.files_download_zip(self.path)
                
@@ -210,16 +218,6 @@ class exportableFile(DownloadItem):
 
 
 
-
-
-def main(path,root_path):
-    os.makedirs("../"+root_path, exist_ok=True)
-    # Set the root path for the download
-    Folder.root_path = root_path
-    # Create an instance of the Folder class
-    folder = Folder.get(path)
-    # Download the folder and its contents
-    folder.download()
 
 
 

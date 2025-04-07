@@ -4,7 +4,13 @@ import os
 
 import files
 
-"""todo: make command lineable"""
+"""todo: make command lineable
+async/parralel?
+unzip progress bar
+main only works with folders lol< get only works with folders lol
+exportableFiles not complete
+
+"""
 def main(path, root_path):
     os.makedirs("../" + root_path, exist_ok=True)
     # Set the root path for the download
@@ -17,7 +23,7 @@ def main(path, root_path):
 
 
 if __name__ == "__main__":
-    path=
-    root_path=
+    path="/test/data/dng_files/profiles"
+    root_path="test1"
     main(path, root_path)
 
