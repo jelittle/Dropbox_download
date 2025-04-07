@@ -222,7 +222,7 @@ def main(path,root_path):
     folder.download()
 
 
-main("/test/data/dng_files", "testing")
+
 
 
 
