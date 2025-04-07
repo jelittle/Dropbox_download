@@ -51,7 +51,7 @@ def dbx_generator():
         nonlocal dbx
         if dbx is None:  # Create the object only once
             dbx = dropbox.Dropbox(oauth2_refresh_token=REFRESH_TOKEN, app_key=APP_KEY)
-            print("Dropbox client initialized.")
+            
         return dbx
 
 
