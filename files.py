@@ -164,7 +164,8 @@ class Folder(DownloadItem):
         except (ValueError, dropbox.exceptions.ApiError) as e:
             if not isinstance(e, dropbox.files.DownloadZipError):
                 if not isinstance(e, ValueError):
-                    raise e
+                    # raise e
+                    pass
 
             
             #for now we just print error and pass downloading to children

@@ -9,6 +9,7 @@ async/parralel?
 unzip progress bar
 main only works with folders lol< get only works with folders lol
 exportableFiles not complete
+doesnt actually work with files larger than 20gb, well it does but I turned of exception handling on files.py line 175 ish to do it
 
 """
 def main(path, root_path):
