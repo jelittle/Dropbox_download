@@ -1,7 +1,6 @@
-# Dropbox Download
-
-Tool for downloading large files from dropbox.
-useful for downloading directly to servers rather than going downloading to pc then through some rsync/scp..etc
+# Dropbox Large Download
+Tool for downloading large files from dropbox. It is functional but definitely has some rough edges, check issues for more in-depth explanations
+useful for downloading directly to servers rather than downloading to pc then through some rsync/scp..etc
 
 ## Features
 - Automates downloading datasets from Dropbox.
